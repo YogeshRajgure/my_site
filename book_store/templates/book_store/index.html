@@ -1,0 +1,23 @@
+{% extends "book_store/base.html" %}
+
+{% block title %}
+    All Blocks
+{% endblock title %}
+
+{% block content %}
+    <ul>
+        {% for book in books %}
+        <li>
+            {% comment %} <a href="{% url "book-details-page" book.id %}"> {% endcomment %}
+            <a href="{{book.get_absolute_url}}">
+                {{book.title}} (Rating: {{book.rating}})
+            </a>
+        </li>
+        {% endfor %}
+        
+    </ul>
+    <hr>
+    <p>Toral number of Books: {{total_number_of_books}}</p>
+    <p>Average rating: {{average_rating.rating__avg}} </p>
+
+{% endblock content %}
