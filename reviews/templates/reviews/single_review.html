@@ -1,0 +1,13 @@
+{% extends "reviews/base.html" %}
+
+{% block title %}
+    Review Details
+{% endblock title %}
+
+{% block content %}
+<br>
+<br>
+    <h1 style="display: inline">{{review.user_name}}</h1> <h2 style="display: inline">raing({{review.rating}})</h2>
+    <p>{{review.review_text}}</p>
+    
+{% endblock content %}
