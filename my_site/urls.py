@@ -25,5 +25,6 @@ urlpatterns = [
     path("blog/", include("blog.urls"), name="blog-start-page"),  # http://localhot:8000/
     path("book-store/", include("book_store.urls"), name="book-store-start-page"),
     path("reviews/", include("reviews.urls"), name="reviews-start-page"),
+    path("profiles/", include("profiles.urls"), name="profiles-start-page"),
 
 ]
