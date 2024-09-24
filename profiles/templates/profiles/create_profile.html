@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{% static "profiles/styles.css" %}">
 </head>
 <body>
+  <a href="{% url "profiles-list-page" %}">profiles list</a>
   <form action="/profiles/" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
