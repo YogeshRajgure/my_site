@@ -9,5 +9,13 @@
 <br>
     <h1 style="display: inline">{{review.user_name}}</h1> <h2 style="display: inline">raing({{review.rating}})</h2>
     <p>{{review.review_text}}</p>
-    
+    {% if is_fav_key %}
+        <p>This is marked as favourite!! </p>
+    {% else %}
+        <form action="{% url "mark-review-as-fav" %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="review_id" value={{review.user_name}}>
+            <button type="submit"> Mark as Favourite </button>
+        </form>
+    {% endif %}
 {% endblock content %}
