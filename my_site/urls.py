@@ -18,10 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", TemplateView.as_view(template_name="landing_index.html")),
     path("blog/", include("blog.urls"), name="blog-start-page"),  # http://localhot:8000/
     path("book-store/", include("book_store.urls"), name="book-store-start-page"),
-]
+    path("reviews/", include("reviews.urls"), name="reviews-start-page"),
+    path("profiles/", include("profiles.urls"), name="profiles-start-page"),
+
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

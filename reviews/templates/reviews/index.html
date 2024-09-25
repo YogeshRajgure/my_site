@@ -1,0 +1,23 @@
+{% extends "reviews/base.html" %}
+
+{% block title %}
+    Your Review
+{% endblock title %}
+        
+{% block content %}
+<a href="{% url "reviews-list-page" %}"> All Reviews </a>
+<form action="{% url "reviews-start-page" %}" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-control {% if field.errors %} errors {% endif %} ">
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors }}
+        </div>
+    {% endfor %}
+    
+
+    <button type="submit"> Send </button>
+</form>
+{% endblock content %}
+
