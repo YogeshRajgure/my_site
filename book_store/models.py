@@ -44,7 +44,7 @@ class Book(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True) #models.CharField(null=True, max_length=100)
     is_bestselling = models.BooleanField(default=False)
-    published_countries = models.ManyToManyField(Country, null=False)
+    published_countries = models.ManyToManyField(Country)
     slug = models.SlugField(default="", blank=True, null=False, db_index=True)
 
     def get_absolute_url(self):
