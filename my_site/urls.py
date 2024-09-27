@@ -29,4 +29,5 @@ urlpatterns = [
     path("reviews/", include("reviews.urls"), name="reviews-start-page"),
     path("profiles/", include("profiles.urls"), name="profiles-start-page"),
 
-]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) \
+  + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
